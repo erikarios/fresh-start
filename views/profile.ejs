@@ -1,0 +1,18 @@
+<%- include('partials/header') -%>
+<div class="container">
+  <div class="row mt-5">
+      <div class="text-center">
+          <div>
+              <p><strong>Hello</strong>: <%= user.userName %></p>
+          </div>
+          <div class="mt-5">
+            <h2>Check In</h2>
+            <form action="/profile/createPost" method="POST">
+                <button type="submit" class="btn btn-dark" value="reset">Reset</button>
+                <button type="submit" class="btn btn-dark" value="add">Another Day</button>
+            </form>
+          </div>
+      </div>
+    </div>
+</div>
+<%- include('partials/footer') -%>

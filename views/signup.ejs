@@ -1,0 +1,30 @@
+<%- include('partials/index') -%>
+
+<main class="container">
+    <div class="signup">
+        <% if (locals.messages.errors) { %>
+            <% messages.errors.forEach( el => { %>
+                <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+        <% if (locals.messages.info) { %>
+            <% messages.info.forEach( el => { %>
+                <div class="alert alert-info"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+    <form action="/signup" method="POST">
+        <label for="userName">First Name</label>
+            <input type="text" placeholder="First Name" id="userName" name="userName"> 
+        <label for="inputEmail">Email</label>
+            <input type="email" placeholder="Email" id="inputEmail" name="email">
+        <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="password" name="password">
+        <label for="confirmPassword">Confirm Password</label>
+            <input type="password" placeholder="Password" id="confirmPassword" name="confirmPassword">
+        <label for="soberDate">Sobriety Date</label>
+            <input type="date" id="soberDate" name="soberDate" >
+        <button type="submit" class="btn btn-dark">Sign Up</button>
+    </form>
+</main>
+
+<%- include('partials/footer') -%>

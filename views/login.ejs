@@ -1,0 +1,33 @@
+<%- include('partials/index') -%>
+
+<main class="container">
+    <div class="row justify-content-center">
+        <% if (locals.messages.errors) { %>
+            <% messages.errors.forEach( el => { %>
+                <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+        <% if (locals.messages.info) { %>
+            <% messages.info.forEach( el => { %>
+                <div class="alert alert-info"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <form action="/login" method="POST">
+                    <label for="inputEmail4" class="form-label">Email address</label>
+                    <input type="email" placeholder="Email" class="form-control" id="inputEmail" name="email"/>
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4"  class="form-label">Password</label>
+                <input type="password" placeholder="Password" class="form-control" id="password" name="password">
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-dark">Log In</button>
+            </div>     
+        </form>
+        </div>
+     </div>
+</main>
+
+<%- include('partials/footer') -%>
