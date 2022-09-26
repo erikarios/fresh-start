@@ -1,23 +1,12 @@
 const CheckIn = require("../models/CheckIn");
 
-//Need to create another controller for updating sober tracker
-//Need new model as well
-//Need to put it together on profile page
 
-//soberSince needs to appear but it is in the User model not CheckIn
 
 module.exports = {
   getProfile: async (req, res) => {
     try {
       const checkIn = await CheckIn.find({ user: req.user.id });
-      res.render("profile.ejs", { user: req.user , soberSince: req.body.soberSince }); //check this line. Not sure if it's right
-    } catch (err) {
-      console.log(err);
-    }
-  },
-  getResources: async (req, res) => {
-    try {
-      res.render("resources.ejs");
+      res.render("profile.ejs", { user: req.user , soberSince: req.body.soberSince }); 
     } catch (err) {
       console.log(err);
     }
@@ -25,7 +14,7 @@ module.exports = {
   createDate: async (req, res) => {
     try {
       await Post.create({
-        soberTracker: req.body, //Need help soberSince: req.body.soberSince,
+        soberTracker: req.body, 
         user: req.user.id,
       });
       console.log("Another day has been added!");

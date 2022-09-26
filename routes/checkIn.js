@@ -5,9 +5,6 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 
 router.post("/addDate", checkInController.createDate);
-//create or update
-//post or put
-router.get("/resources", checkInController.getResources);
 
 
 

@@ -2,13 +2,19 @@
 <div class="container">
   <div class="row mt-5">
       <div class="text-center">
+          <h2>Check In</h2>
           <div>
               <p><strong>Hello</strong>: <%= user.userName %></p>
           </div>
+          <div >
+            <strong>Days</strong>: <%= user.soberSince %>
+          </div>
           <div class="mt-5">
-            <h2>Check In</h2>
-            <form action="/profile/createPost" method="POST">
+            
+            <form action="/profile/resetDate" method="POST">
                 <button type="submit" class="btn btn-dark" value="reset">Reset</button>
+            </form>
+            <form action="/profile/createDate" method="POST">
                 <button type="submit" class="btn btn-dark" value="add">Another Day</button>
             </form>
           </div>

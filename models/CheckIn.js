@@ -3,9 +3,8 @@ const mongoose = require("mongoose")
 const checkInSchema = mongoose.Schema ({
     soberTracker: {
         type: Number,
-        //required: [true],
-        allowNull: false
     },
+  
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
