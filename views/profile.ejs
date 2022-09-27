@@ -1,6 +1,12 @@
 <%- include('partials/header') -%>
 <div class="container">
   <div class="row mt-5">
+
+    <header class="container">
+        <div 
+        class = "back-img"
+        style = "background-image: url('/img/stones.jpg');"
+        >
       <div class="text-center">
           <h2>Check In</h2>
           <div>
@@ -9,15 +15,24 @@
           <div >
             <strong>Days</strong>: <%= user.soberSince %>
           </div>
-          <div class="mt-5">
+          <div class="mt-5"> 
             
             <form action="/profile/resetDate" method="POST">
                 <button type="submit" class="btn btn-dark" value="reset">Reset</button>
             </form>
             <form action="/profile/createDate" method="POST">
-                <button type="submit" class="btn btn-dark" value="add">Another Day</button>
+                <button type="submit" class="btn btn-dark" value="add">New Day</button>
             </form>
           </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text">“The man who moves a mountain begins by carrying away small stones.” – Confucius.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 </div>

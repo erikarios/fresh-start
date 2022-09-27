@@ -1,7 +1,5 @@
 const CheckIn = require("../models/CheckIn");
 
-
-
 module.exports = {
   getProfile: async (req, res) => {
     try {

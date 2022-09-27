@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
+const moment = require('moment')
 
 const UserSchema = new mongoose.Schema({
   userName: { 
@@ -12,9 +13,9 @@ const UserSchema = new mongoose.Schema({
   },
   soberSince: {
     type: Date,
-    //required: [true],
-    //default: Date.now(),
-    allowNull: false
+    required: true, 
+    trim: true,
+    default: Date.now(),
   },
   password: String,
 });
@@ -40,6 +41,5 @@ UserSchema.methods.comparePassword = function comparePassword(candidatePassword,
     cb(err, isMatch)
   })
 }
-
 
 module.exports = mongoose.model("User", UserSchema);

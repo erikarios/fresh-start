@@ -1,0 +1,14 @@
+.back-img{
+    background-size: cover;
+    min-height: 80vh;
+    position: relative;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
+}
+
+
+@media (max-width: 760px){
+    .back-img {
+        min-height: 30vh;
+    }
+}
+
