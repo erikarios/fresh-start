@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
-const moment = require('moment')
+const moment = require('moment');
 
 const UserSchema = new mongoose.Schema({
   userName: { 
@@ -16,6 +16,9 @@ const UserSchema = new mongoose.Schema({
     required: true, 
     trim: true,
     default: Date.now(),
+  },
+  daysSober: {
+    type: Number,
   },
   password: String,
 });

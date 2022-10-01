@@ -1,6 +1,7 @@
 const passport = require("passport");
 const validator = require("validator");
 const User = require("../models/User");
+const moment = require("moment");
 
 exports.getLogin = (req, res) => {
   if (req.user) {
@@ -39,7 +40,23 @@ exports.postLogin = (req, res, next) => {
         return next(err);
       }
       req.flash("success", { msg: "Success! You are logged in." });
-      res.redirect(req.session.returnTo || "/profile");
+      /* console.log(user);
+      console.log(Date.now());
+      console.log(user.soberSince.getTime());
+      const oneDay = 1000 * 60 * 60 * 24;
+      const daysSober = Math.round(
+        (Date.now() - user.soberSince.getTime()) / oneDay
+      );
+      console.log(daysSober);
+      user.daysSober = daysSober;
+      console.log(user); */
+      console.log(user.soberSince);
+      const soberSinceDate = moment(user.soberSince, "YYYY-MM-DD");
+      // res.redirect(req.session.returnTo || "/profile");
+      res.render("profile", {
+        soberSinceDate: soberSinceDate,
+        user: user,
+      });
     });
   })(req, res, next);
 };
@@ -81,11 +98,17 @@ exports.postSignup = (req, res, next) => {
     gmail_remove_dots: false,
   });
 
+
+  const currentDate = moment();
+  const soberSinceDate = moment(req.body.soberSince, "YYYY-MM-DD");
+
+  const daysSober = currentDate.diff(soberSinceDate, "days");
   const user = new User({
     userName: req.body.userName,
     email: req.body.email,
     password: req.body.password,
     soberSince: req.body.soberSince,
+    daysSober: daysSober,
   });
 
   User.findOne(
@@ -108,7 +131,10 @@ exports.postSignup = (req, res, next) => {
           if (err) {
             return next(err);
           }
-          res.redirect("/profile");
+          res.render("profile", {
+            soberSinceDate: soberSinceDate, 
+            user: user,
+          });
         });
       });
     }

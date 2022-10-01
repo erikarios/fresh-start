@@ -10,6 +10,8 @@ const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const checkInRoutes = require("./routes/checkIn");
+const journalRoutes = require("./routes/journal");
+
 
 require("dotenv").config({ path: "./config/.env" });
 
@@ -47,6 +49,7 @@ app.use(flash());
 //Setup Routes For Which The Server Is Listening
 app.use("/", mainRoutes)
 app.use("/profile", checkInRoutes);
+app.use("/journal", journalRoutes);
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
