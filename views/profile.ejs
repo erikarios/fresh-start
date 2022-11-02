@@ -13,17 +13,23 @@
               <p><strong>Hello</strong>: <%= user.userName %></p>
           </div>
           <div >
-            <strong>Date since sober</strong>: <%= soberSinceDate.format("Do MMMM, YYYY") %>
+            <strong>Date Since Sober</strong>: <%= soberSince %>
           </div>
           <div >
             <strong>Days</strong>: <%= user.daysSober %>
           </div>
           <div class="mt-5"> 
             
-            <form action="/profile/resetDate" method="POST">
+            <form  
+                action="/profile/resetDays/<%= user.daysSober._id %>?_method=PUT"
+                method="POST"
+            >
                 <button type="submit" class="btn btn-dark" value="reset">Reset</button>
             </form>
-            <form action="/profile/createDate" method="POST">
+            <form 
+                action="/profile/updateDays/<%= user.daysSober._id %>?_method=PUT"
+                method="POST"
+             >
                 <button type="submit" class="btn btn-dark" value="add">New Day</button>
             </form>
           </div>

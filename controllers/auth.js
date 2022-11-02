@@ -40,23 +40,7 @@ exports.postLogin = (req, res, next) => {
         return next(err);
       }
       req.flash("success", { msg: "Success! You are logged in." });
-      /* console.log(user);
-      console.log(Date.now());
-      console.log(user.soberSince.getTime());
-      const oneDay = 1000 * 60 * 60 * 24;
-      const daysSober = Math.round(
-        (Date.now() - user.soberSince.getTime()) / oneDay
-      );
-      console.log(daysSober);
-      user.daysSober = daysSober;
-      console.log(user); */
-      console.log(user.soberSince);
-      const soberSinceDate = moment(user.soberSince, "YYYY-MM-DD");
-      // res.redirect(req.session.returnTo || "/profile");
-      res.render("profile", {
-        soberSinceDate: soberSinceDate,
-        user: user,
-      });
+      res.redirect(req.session.returnTo || "/profile");
     });
   })(req, res, next);
 };
@@ -97,12 +81,12 @@ exports.postSignup = (req, res, next) => {
   req.body.email = validator.normalizeEmail(req.body.email, {
     gmail_remove_dots: false,
   });
-
-
+  
   const currentDate = moment();
-  const soberSinceDate = moment(req.body.soberSince, "YYYY-MM-DD");
+  const soberSinceDate = moment.utc(req.body.soberSince, "YYYY-MM-DD");
 
   const daysSober = currentDate.diff(soberSinceDate, "days");
+  console.log(daysSober)
   const user = new User({
     userName: req.body.userName,
     email: req.body.email,
@@ -131,10 +115,7 @@ exports.postSignup = (req, res, next) => {
           if (err) {
             return next(err);
           }
-          res.render("profile", {
-            soberSinceDate: soberSinceDate, 
-            user: user,
-          });
+          return res.redirect("/profile");
         });
       });
     }

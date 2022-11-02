@@ -1,0 +1,55 @@
+<%- include('partials/header') -%>
+
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m8 form-control">
+        <h3 id="title"><%= journal.title %></h3>
+          <div class="card story">
+            <div class="card-content">
+              <span class="card-title"></span>
+                <p id="journalBody"><%= journal.body %></p>
+            </div>
+          </div> 
+            <p><%= createdAt %></p>
+              <form
+                action="/journal/deleteJournal/<%= journal._id %>?_method=DELETE"
+                method="POST"
+                class="col-3"
+              >
+              <button class="btn btn-primary fa fa-trash" type="submit"></button>
+            </form>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editJournal"><i class="fas fa-edit"></i>
+            </button>
+          <!-- Modal --> 
+          <div class="modal fade" id="editJournal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Journal</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                <div class="modal-body">
+                  <form action="/journal/updateJournal/<%= journal._id %>?_method=PUT" 
+                  class="col-1" method= "POST">
+                    <label for="JournalTitle">Journal Title</label>
+                    <input type="text"  id="journalTitle" name="journalTitle">
+                    <label for="JournalText">Journal Text</label>
+                    <input type="text" id="journalText" name="journalText">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div> 
+      </div>
+    </div>
+  </div>
+     
+  <script src="/js/main.js"></script>
+
+<%- include('partials/footer') -%>
+    
