@@ -1,13 +1,25 @@
 <%- include('partials/header') -%>
+<main>
   <div class = "container">
-    <div class="text-center">
-      <!-- <div class = "journal-img"
-            style = "background-image: url('/img/light.jpg');"
-      > -->
-      <h3>How Are You Today:</h3><br>
-      <div class="row">
-        <!-- enctype="multipart/form-data -->
-        <form action="/journal/createJournal" method="POST" class="col s12">
+    <div class="px-4 my-4 text-center">
+      <h1 class="display-4 fw-bold">Journal</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">
+            Take a moment to write down your thoughts and reflect on your journey
+          </p>
+        </div>
+        <div class="overflow-hidden" style="max-height: 80vh;">
+          <div class="container px-5">
+            <img src="/img/journal.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="" width="800" height="1000" loading="lazy"  >
+          </div>
+        </div>
+    </div>
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5 text-center">
+          <h3>How Are You Today?</h3><br>
+          <div class="row">
+            <!-- enctype="multipart/form-data -->
+            <form action="/journal/createJournal" method="POST" class="col s12">
           <div class="row">
             <div class="input-field">
               <label for="title" class="form-label">Title:</label>
@@ -16,18 +28,20 @@
           </div><br>
           <div class="row">
             <div class="input-field">
-              <label for="body" class="form-label">Text</label>
+              <label for="body" class="form-label">Text:</label>
               <textarea id="body" class="form-control" rows="4"  name="body" required></textarea>
             </div>
           </div>
-          <div class="row">
-            <button type="submit" value="Save" class="btn">Submit</button>
-            <a href="/profile" class="btn">Cancel</a>
-          </div>
-        </form>
-      </div> <br>
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-5 my-4">  
+              <button type="submit" value="Save" class="btn btn-dark">Submit</button>
+              <a href="/journal" class="btn btn-dark">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class=" my-4 border-bottom"></div>
+    <div class="row row-cols-1 row-cols-md-3 g-4 entries">
       <% journal.reverse().forEach(function(journal){ %>
       <div class="col">
         <div class="card h-100">
@@ -43,4 +57,5 @@
       <% }); %>
     </div>
   </div>
+</main>
 <%- include('partials/footer') -%>

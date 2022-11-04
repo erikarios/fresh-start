@@ -1,55 +1,74 @@
 <%- include('partials/header') -%>
-
-  <div class="container">
-    <div class="row">
-      <div class="col s12 m8 form-control">
-        <h3 id="title"><%= journal.title %></h3>
-          <div class="card story">
-            <div class="card-content">
-              <span class="card-title"></span>
-                <p id="journalBody"><%= journal.body %></p>
-            </div>
-          </div> 
-            <p><%= createdAt %></p>
-              <form
-                action="/journal/deleteJournal/<%= journal._id %>?_method=DELETE"
-                method="POST"
-                class="col-3"
-              >
-              <button class="btn btn-primary fa fa-trash" type="submit"></button>
-            </form>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editJournal"><i class="fas fa-edit"></i>
-            </button>
-          <!-- Modal --> 
-          <div class="modal fade" id="editJournal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Journal</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                <div class="modal-body">
-                  <form action="/journal/updateJournal/<%= journal._id %>?_method=PUT" 
-                  class="col-1" method= "POST">
-                    <label for="JournalTitle">Journal Title</label>
-                    <input type="text"  id="journalTitle" name="journalTitle">
-                    <label for="JournalText">Journal Text</label>
-                    <input type="text" id="journalText" name="journalText">
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-primary">Save changes</button>
+<main class="m-auto">
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5 text-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="card border-opacity-25 shadow">
+            <div class="card-body">
+              <div class="card-header">
+                <h1 class="header-text" id="title"><%= journal.title %></h1>
+                <!-- <div class="dropdown mb-2">
+                  <a class="btn btn-light btn-sm dropdown-toggle border border-secondary border-opacity-10" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="pb-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#494949" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                      </svg></i>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                  </ul>
+                </div>  -->
+              </div>
+                <p class="px-1"id="journalBody"><%= journal.body %></p>
+              <div class="card-footer">
+                <p class="footer-text"><%= createdAt %></p>
+                <!-- <span class="badge rounded-pill text-bg-dark">edited</span> -->
+                <div class="icons gap-3">
+                  <form
+                    action="/journal/deleteJournal/<%= journal._id %>?_method=DELETE"
+                    method="POST"
+                    class="col-3"
+                    >
+                    <button class="btn fa fa-trash btn-danger" type="submit"></button>
                   </form>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-dark fas fa-edit" data-bs-toggle="modal" data-bs-target="#editJournal">
+                  </button>
                 </div>
               </div>
+              <!-- Modal --> 
+              <div class="modal fade" id="editJournal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Journal Entry</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="/journal/updateJournal/<%= journal._id %>?_method=PUT" 
+                      class="" method= "POST">
+                      <label for="JournalTitle">Journal Title</label>
+                      <input type="text" class="form-control rounded-3" id="journalTitle" name="journalTitle"><br>
+                      <label for="JournalText">Journal Text</label>
+                      <input type="text" class="form-control rounded-3" id="journalText" name="journalText">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Save changes</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div> 
             </div>
-          </div> 
+          </div>
+        </div>
       </div>
     </div>
   </div>
-     
-  <script src="/js/main.js"></script>
-
+</main>
+<script src="/js/main.js"></script>
 <%- include('partials/footer') -%>
     

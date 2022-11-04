@@ -48,23 +48,39 @@
                     <div class="alert alert-info"><%= el.msg %></div>
                 <% }) %>    
             <% } %>
-            <div class="row g-3">
+            <div class="row g-3 login">
+              <!-- <div class="col-md-6 form-floating mb-3"> -->
+              <form action="/login" method="POST">
+                <div class="col-md-6 form-floating mb-3 mx-auto">
+                  <input type="email" class="form-control rounded-3" id="inputEmail" placeholder="Email" name="email">
+                  <label for="inputEmail4">Email</label>
+                </div>
+                <div class="col-md-6 form-floating mb-3 mx-auto">
+                  <input type="password" class="form-control rounded-3" id="password" placeholder="Password" name="password">
+                  <label for="inputPassword4">Password</label>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                  <button type="submit" class="btn btn-dark w- mb-2 btn-lg rounded-3">Log In</button>
+                </div>     
+              </form>
+            </div>
+            <!-- <div class="row g-3">
                 <div class="col-md-6">
                     <form action="/login" method="POST">
                         <label for="inputEmail4" class="form-label">Email Address</label>
                         <input type="email" placeholder="Email" class="form-control" id="inputEmail" name="email"/>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputPassword4"  class="form-label">Password</label>
+                    <label for="inputPassword4" class="form-label">Password</label>
                     <input type="password" placeholder="Password" class="form-control" id="password" name="password">
                 </div>
                 <div class="d-grid gap-2 col-6 mx-auto">
                     <button type="submit" class="btn btn-dark">Log In</button>
                 </div>     
             </form>
-            </div>
+            </div> -->
          </div>
-    </main>
+      </main>
     </header>
   </body>
 </html>

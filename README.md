@@ -9,8 +9,11 @@ On the homepage, a counter displays the number of continuous days the user has b
 ### Resources
 The resource page will include four major specific local resources: two resources geared towards recovery and two resources geared towards harm reduction. Users can find a clear summary of what each resource is and can click on the resource for more information. It was important to me to include resources geared toward harm reduction because even though the goal is sobriety, recovery is not always linear. I want the users to be able to have the knowledge of resources that can help potentially save their lives. The specific links are easy to navigate and easy to use. 
 
-### Optimizations
-A notes/journal section will be added so users can write down their wins, thoughts, or feelings. The user would also be able to reflect back on those journal entries. 
+### Journal
+The journal section is for users to write down their wins, thoughts, or feelings. The user would also be able to reflect back on those journal entries. Users can add, edit, and update their journal entries. 
+
+### Future Optimizations
+I plan on implementing google auth and having the date sober since date update when users reset their counter. I also plan making sure that the date/time is updated when edits are made to journal entries. 
 
 ### Technologies Used
 - [Express](https://expressjs.com/)

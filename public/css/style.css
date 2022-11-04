@@ -1,6 +1,6 @@
 .back-img{
     background-size: cover;
-    min-height: 80vh;
+    min-height: 90vh;
     position: relative;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
 }
@@ -12,8 +12,12 @@
     text-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
 }
 
-.resources {
-    border: 5px solid black;
+.resources, .entries {
+    margin-bottom: 1rem;
+}
+
+.first {
+    margin-bottom: 1.5rem;
 }
 
 .resources p {
@@ -25,4 +29,42 @@
     .back-img {
         min-height: 30vh;
     }
+}
+
+
+.card-header {
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.2rem 0 1rem 0;
+  border-bottom: var(--bs-modal-header-border-width) solid
+    var(--bs-modal-header-border-color);
+  border-top-left-radius: var(--bs-modal-inner-border-radius);
+  border-top-right-radius: var(--bs-modal-inner-border-radius);
+}
+
+.card-footer {
+  background-color: transparent;
+  padding: 0.2rem 0 0 0;
+  border: none;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#journalBody {
+    font-size: 1.5rem;
+}
+
+.footer-text {
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 0;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row-reverse;
 }

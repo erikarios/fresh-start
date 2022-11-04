@@ -6,7 +6,7 @@ module.exports = {
     // GET all journal entries
   getJournals: async (req, res) => {
     try {
-      const journal = await Journal.find({ user: req.user.id }).sort({ createdAt: "desc" }).populate('user').lean();
+      const journal = await Journal.find({ user: req.user.id }).sort({ createdAt: "asc" }).populate('user').lean();
       res.render("journal.ejs", { journal: journal });
     } catch (err) {
       console.log(err);
@@ -14,12 +14,12 @@ module.exports = {
   },
   createJournal: async (req, res) => {
     try {
-        //const now = new Date()
+        const now = new Date()
       await Journal.create({
         title: req.body.title,
         body: req.body.body,
         user: req.user.id,
-        //createdAt: now
+        createdAt: now
       });
       console.log("Journal has been added!");
       res.redirect("/journal");

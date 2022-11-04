@@ -1,38 +1,35 @@
 <%- include('partials/header') -%>
-<div class="container">
-  <div class="row mt-5">
-
-    <header class="container">
-        <div 
-        class = "back-img"
-        style = "background-image: url('/img/stones.jpg');"
+<main>
+  <div class="px-4 my-4 text-center">
+    <div 
+    class = "back-img"
+    style = "background-image: url('/img/stones.jpg');" 
+    >
+      <h1 class="display-4 fw-bold" > Check In </h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">
+            <strong>Hello</strong>: <%= user.userName %>
+          </p>
+        </div>
+      <div class="col-lg-6 mx-auto" >
+        <p class="lead mb-4">
+          <strong>Date Since Sober</strong>: <%= soberSince %><br>
+          <strong>Days</strong>: <%= user.daysSober %>
+        </p>
+      </div>
+      <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-5">  
+        <form  
+          action="/profile/resetDays/<%= user.daysSober._id %>?_method=PUT"
+          method="POST"
         >
-      <div class="text-center">
-          <h2>Check In</h2>
-          <div>
-              <p><strong>Hello</strong>: <%= user.userName %></p>
-          </div>
-          <div >
-            <strong>Date Since Sober</strong>: <%= soberSince %>
-          </div>
-          <div >
-            <strong>Days</strong>: <%= user.daysSober %>
-          </div>
-          <div class="mt-5"> 
-            
-            <form  
-                action="/profile/resetDays/<%= user.daysSober._id %>?_method=PUT"
-                method="POST"
-            >
-                <button type="submit" class="btn btn-dark" value="reset">Reset</button>
-            </form>
-            <form 
-                action="/profile/updateDays/<%= user.daysSober._id %>?_method=PUT"
-                method="POST"
-             >
-                <button type="submit" class="btn btn-dark" value="add">New Day</button>
-            </form>
-          </div>
+          <button type="submit" class="btn btn-dark" value="reset">Reset</button>
+        </form>
+        <form 
+          action="/profile/updateDays/<%= user.daysSober._id %>?_method=PUT"
+          method="POST"
+        >
+          <button type="submit" class="btn btn-dark" value="add">New Day</button>
+        </form>
       </div>
       <div class="row">
         <div class="col-sm-4">
@@ -44,5 +41,6 @@
         </div>
       </div>
     </div>
-</div>
+  </div>
+</main>
 <%- include('partials/footer') -%>
