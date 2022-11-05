@@ -9,4 +9,3 @@ exampleModal.addEventListener('show.bs.modal', function (event) {
     changeTitle.value = title.innerText
     changeText.value = body.innerText
 })
-

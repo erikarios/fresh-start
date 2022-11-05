@@ -18,11 +18,28 @@
         </p>
       </div>
       <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-5">  
-        <form  
-          action="/profile/resetDays/<%= user.daysSober._id %>?_method=PUT"
-          method="POST"
-        >
-          <button type="submit" class="btn btn-dark" value="reset">Reset</button>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#checkReset">Reset
+          </button>
+        <!-- Modal --> 
+        <div class="modal fade" tabindex="-1" role="dialog" id="checkReset">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content rounded-3 shadow">
+              <div class="modal-body p-4 text-center">
+                <form  
+                action="/profile/resetDays/<%= user.daysSober._id %>?_method=PUT"
+                method="POST"
+              >
+                <h5 class="mb-0">Are you sure you want to reset?</h5>
+              </div>
+              <div class="modal-footer flex-nowrap p-0">
+                <button type="submit" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end" value="reset"><strong>Yes, reset</strong></button>
+                <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button> -->
+                <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0" data-bs-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
         </form>
         <form 
           action="/profile/updateDays/<%= user.daysSober._id %>?_method=PUT"

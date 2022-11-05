@@ -20,13 +20,37 @@ module.exports = {
       console.log(err);
     }
   },
- resetDays: async (req, res) => {
+//  resetDays: async (req, res) => {
+//     try {
+//       await User.findByIdAndUpdate({ _id: req.user._id }, { daysSober: 0});
+//       console.log("Days have been reset!");
+//       res.redirect("/profile");
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   },
+
+  resetDays: async (req, res) => {
     try {
-      await User.findByIdAndUpdate({ _id: req.user._id }, { daysSober: 0});
-      console.log("Days have been reset!");
-      res.redirect("/profile");
+
+      await User.findByIdAndUpdate(
+        { 
+          _id: req.user._id 
+        }, 
+        { 
+          daysSober: 0
+        },
+            {
+              returnDocument: "after",
+            }
+          );
+          console.log("Days have been reset!");
+          res.redirect("/profile");
     } catch (err) {
-      console.log(err);
+        console.log(err);
     }
   },
+
+
+
 };
