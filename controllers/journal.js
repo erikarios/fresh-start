@@ -6,7 +6,7 @@ module.exports = {
     // GET all journal entries
   getJournals: async (req, res) => {
     try {
-      const journal = await Journal.find({ user: req.user.id }).sort({ createdAt: "asc" }).populate('user').lean();
+      const journal = await Journal.find({ user: req.user.id }).sort({ createdAt: "desc" }).populate('user').lean();
       res.render("journal.ejs", { journal: journal });
     } catch (err) {
       console.log(err);
