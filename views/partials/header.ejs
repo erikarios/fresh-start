@@ -28,16 +28,34 @@
   </head>
   <body>
     <header>
-        <nav class="navbar navbar-dark bg-dark" aria-controls="navbarSupportedContent" aria-expanded="false" >
-          <div class="container-fluid">
-            <a class="navbar-brand">Everyday is a Fresh Start</a>
-          <div class ="ms-auto">
-            <a class="navbar-brand" href="/profile">Home</a>
-            <a class="navbar-brand" href="/resources">Resources</a>
-            <a class="navbar-brand" href="/journal">Journal</a>
-            <a class="navbar-brand" href="/logout">Log Out</a>
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Dark offcanvas navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand">Everyday is a Fresh Start</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarDark" aria-controls="offcanvasNavbarDark">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbarDark" aria-labelledby="offcanvasNavbarDarkLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel">Everyday is a Fresh Start</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a id="links" class="nav-link active" aria-current="page" href="/profile">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a id="links" class="nav-link active" href="/resources">Resources</a>
+                </li>
+                <li class="nav-item">
+                  <a id="links" class="nav-link active" href="/journal">Journal</a>
+                </li>
+                <li class="nav-item">
+                  <a id="links" class="nav-link active" href="/logout">Log Out</a>
+                </li>
+              </ul>
           </div>
-          </div>
-        </nav>
-      </div>
-    </header>
+        </div>
+      </nav>
+    </header>   
+  </body>
