@@ -21,9 +21,9 @@
     margin-top: 1.5rem;
 }
 
-.resources p {
+/* .resources p {
     text-align: justify;
-}
+} */
 
 .card-header {
   background-color: transparent;
@@ -71,4 +71,24 @@
     .first {
          margin-top: 4.5rem;
     };
+    /* .resources p {
+      text-align: left !important;
+  } */
 }
+
+/* @media screen and (min-width: 480px) and (max-width: 820px){
+  .first {
+    margin-top: 4.5rem;
+  };
+  .resources p {
+   text-align: left !important;
+  } 
+}
+
+
+@media screen and (min-width: 821px) and (max-width: 1024px){
+  .resources p {
+    text-align: justify !important;
+    ;
+  } */
+/* } */
